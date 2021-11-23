@@ -3,7 +3,7 @@ on:
   push: {}
 
 jobs:
-  publish-docs
+  publish-docs:
     name: Publish docs
     runs-on: ubuntu-latest
     steps:
