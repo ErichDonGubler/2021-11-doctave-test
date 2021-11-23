@@ -1,0 +1,16 @@
+name: Checks for every commit
+on: 
+  push: {}
+
+jobs:
+  publish-docs:
+    name: Publish docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source from Git
+        uses: actions/checkout@v2
+      - name: Publish docs
+        env:
+          DOCTAVE_UPLOAD_TOKEN: ${{ secrets.DOCTAVE_UPLOAD_TOKEN }}
+        run: |
+          curl -Ls https://docs.doctave.com/push.sh | bash -s -- .
